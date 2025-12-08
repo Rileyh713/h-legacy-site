@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H-Legacy Consulting | Business Profitability & Performance Audit</title>
+  <meta name="description" content="H-Legacy Consulting helps business owners uncover hidden profit, analyse operational performance and turn busy operations into stronger, more predictable financial outcomes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-elevated: #111317;
+      --bg-soft: #181b21;
+      --accent: #9ca3af;
+      --accent-strong: #e5e7eb;
+      --accent-soft: #6b7280;
+      --border-subtle: #1f2933;
+      --pill: #1e293b;
+      --pill-soft: #111827;
+      --danger: #f97373;
+      --success: #4ade80;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.65);
+      --shadow-subtle: 0 10px 30px rgba(0,0,0,0.45);
+      --max-width: 1120px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #20232a 0, #050608 45%, #020308 100%);
+      color: var(--accent-strong);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(148,163,184,0.15) 0, transparent 50%),
+                  radial-gradient(circle at bottom right, rgba(30,64,175,0.25) 0, transparent 55%);
+    }
+
+    .nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,6,8,0.95), rgba(5,6,8,0.85));
+      border-bottom: 1px solid rgba(31,41,55,0.75);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #e5e7eb 0, #9ca3af 16%, #4b5563 52%, #020617 100%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .nav-brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    .nav-brand-sub {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      color: var(--accent-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      font-size: 0.82rem;
+      color: var(--accent);
+    }
+
+    .nav-link {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #e5e7eb, #9ca3af);
+      border-radius: 999px;
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .pill {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.08) 0, rgba(15,23,42,1) 60%);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom right, #4ade80, #16a34a);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
+    }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 4.5rem 1.25rem 4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.4rem, 3vw + 1.6rem, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+
+    .hero-heading span {
+      display: inline-block;
+      background: linear-gradient(to right, #f9fafb, #9ca3af);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      max-width: 34rem;
+      color: var(--accent);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .metric {
+      min-width: 130px;
+      padding-right: 0.5rem;
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-value {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--accent-strong);
+    }
+
+    .metric-note {
+      font-size: 0.72rem;
+      color: var(--accent-soft);
+      margin-top: 0.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.8rem 1.5rem;
+      font-family: inherit;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f9fafb, #9ca3af);
+      color: #020617;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+      box-shadow: 0 22px 50px rgba(15,23,42,1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148,163,184,0.35);
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.12) 0, rgba(15,23,42,1) 65%);
+      color: var(--accent-strong);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209,213,219,0.8);
+      transform: translateY(-1px);
+    }
+
+    .btn-icon-arrow {
+      font-size: 1rem;
+      transform: translateY(1px);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 1.75rem 1.5rem 1.6rem;
+      background: radial-gradient(circle at top left, rgba(243,244,246,0.18) 0, rgba(17,24,39,0.98) 52%, rgba(15,23,42,1) 100%);
+      border: 1px solid rgba(148,163,184,0.3);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-soft);
+    }
+
+    .hero-card-pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: rgba(22,163,74,0.12);
+      border: 1px solid rgba(34,197,94,0.4);
+      color: #bbf7d0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .hero-card-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom right, #4ade80, #16a34a);
+    }
+
+    .hero-logo-shell {
+      border-radius: 18px;
+      background: radial-gradient(circle at top center, rgba(248,250,252,0.18) 0, rgba(15,23,42,0.98) 60%, rgba(15,23,42,1) 100%);
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 1.4rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .hero-logo-img {
+      width: 120px;
+      max-width: 70%;
+      filter: drop-shadow(0 18px 30px rgba(0,0,0,0.85));
+    }
+
+    .hero-logo-title {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      color: var(--accent-strong);
+    }
+
+    .hero-logo-tagline {
+      font-size: 0.78rem;
+      text-align: center;
+      color: var(--accent);
+      max-width: 16rem;
+    }
+
+    .hero-stat-strip {
+      margin-top: 1.3rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at left, rgba(34,197,94,0.12) 0, rgba(15,23,42,1) 60%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      font-size: 0.72rem;
+      color: var(--accent-soft);
+    }
+
+    .hero-stat-strip strong {
+      color: var(--accent-strong);
+    }
+
+    .hero-stat-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #fbbf24 0, #f97316 45%, #b45309 100%);
+      box-shadow: 0 0 0 4px rgba(251,191,36,0.22);
+    }
+
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.8rem 1.25rem 0;
+    }
+
+    .section-heading {
+      margin-bottom: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+    }
+
+    .section-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent-soft);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      font-size: 0.82rem;
+      color: var(--accent);
+      max-width: 24rem;
+    }
+
+    .pill-mini {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.08) 0, rgba(15,23,42,1) 65%);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(15,23,42,0.95), #020617);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+      padding: 1.35rem 1.2rem 1.3rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.55rem;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.45);
+      color: var(--accent-soft);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      font-size: 0.8rem;
+      color: var(--accent);
+      line-height: 1.75;
+    }
+
+    .card-list {
+      margin: 0.7rem 0 0;
+      padding-left: 1.15rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      line-height: 1.7;
+    }
+
+    .card-list li + li {
+      margin-top: 0.25rem;
+    }
+
+    .strip {
+      margin-top: 0.9rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.72rem;
+      color: var(--accent-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .strip strong {
+      color: var(--accent-strong);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 1.6rem;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.78rem;
+      color: var(--accent);
+      padding: 0.45rem 0.1rem;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      color: var(--accent-strong);
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.15) 0, rgba(15,23,42,1) 70%);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+    }
+
+    .step-title {
+      font-weight: 500;
+      margin-bottom: 0.08rem;
+    }
+
+    .step-text {
+      color: var(--accent-soft);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+    }
+
+    .badge {
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left, rgba(148,163,184,0.18) 0, rgba(15,23,42,1) 70%);
+    }
+
+    .note {
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      color: var(--accent-soft);
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.4rem 1.6rem;
+      background: radial-gradient(circle at top left, rgba(243,244,246,0.18) 0, rgba(15,23,42,1) 52%, #020617 100%);
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-intro {
+      font-size: 0.85rem;
+      color: var(--accent);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .contact-tiles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .contact-tile {
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.06) 0, rgba(15,23,42,1) 60%);
+      color: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .contact-tile strong {
+      color: var(--accent-strong);
+    }
+
+    .contact-tile-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #22c55e 0, #16a34a 55%, #166534 100%);
+    }
+
+    .contact-form {
+      margin-top: 1.1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 0.9rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.78rem;
+    }
+
+    .form-label {
+      color: var(--accent-soft);
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.85);
+      padding: 0.7rem 0.9rem;
+      font-family: inherit;
+      font-size: 0.8rem;
+      color: var(--accent-strong);
+      outline: none;
+      transition: border-color 0.16s ease-out, box-shadow 0.16s ease-out, background 0.16s ease-out;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(148,163,184,0.6);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: rgba(209,213,219,0.9);
+      box-shadow: 0 0 0 1px rgba(249,250,251,0.65);
+      background: rgba(15,23,42,0.98);
+    }
+
+    .form-textarea {
+      border-radius: 18px;
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%), linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+      background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+      background-size: 7px 7px, 7px 7px;
+      background-repeat: no-repeat;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-footer {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .form-helper {
+      font-size: 0.72rem;
+      color: var(--accent-soft);
+    }
+
+    .form-helper strong {
+      color: var(--accent-strong);
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+      font-size: 0.72rem;
+      color: var(--accent-soft);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-top: 1px solid rgba(31,41,55,0.9);
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--accent-soft);
+    }
+
+    .footer-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .footer-pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.06) 0, rgba(15,23,42,1) 60%);
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.4rem;
+        padding-top: 3.1rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .form-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        padding: 0.55rem 1rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 56px 16px auto 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(31,41,55,0.85);
+        background: radial-gradient(circle at top left, rgba(15,23,42,0.98) 0, #020617 55%);
+        box-shadow: 0 18px 50px rgba(0,0,0,0.9);
+        padding: 0.85rem 0.9rem 0.95rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+        font-size: 0.82rem;
+        transform: scale(0.96);
+        opacity: 0;
+        pointer-events: none;
+        transform-origin: top right;
+        transition: opacity 0.16s ease-out, transform 0.16s ease-out;
+      }
+
+      .nav-links.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        border: 1px solid rgba(148,163,184,0.5);
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at top left, rgba(248,250,252,0.08) 0, rgba(15,23,42,1) 65%);
+        color: var(--accent-strong);
+        cursor: pointer;
+      }
+
+      .nav-toggle span {
+        width: 15px;
+        height: 1.7px;
+        border-radius: 999px;
+        background: var(--accent-strong);
+        box-shadow: 0 5px 0 var(--accent-strong), 0 -5px 0 var(--accent-strong);
+      }
+
+      .hero {
+        padding-bottom: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav-shell">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-mark">
+            <!-- transparent logo -->
+            <img src="assets/logo.png" alt="H-Legacy Consulting logo">
+          </div>
+          <div class="nav-brand">
+            <div class="nav-brand-title">H-LEGACY</div>
+            <div class="nav-brand-sub">CONSULTING</div>
+          </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <span class="nav-link" data-scroll="#services">Overview</span>
+          <span class="nav-link" data-scroll="#process">How it works</span>
+          <span class="nav-link" data-scroll="#contact">Contact</span>
+          <a class="pill" data-scroll="#contact">
+            <span class="pill-dot"></span>
+            Book a profitability review
+          </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-left">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Busy operation · No clear profitability picture
+          </div>
+          <h1 class="hero-heading">
+            Turn complex operations into a
+            <span>clear, profitable business.</span>
+          </h1>
+          <p class="hero-sub">
+            H-Legacy takes your real numbers – labour, delivery effort, re-work and leakage –
+            and shows you exactly where profit is being created, and where it is quietly eroding.
+            No fluff, just a structured profitability and performance diagnostic.
+          </p>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-label">Focus</div>
+              <div class="metric-value">Profitability</div>
+              <div class="metric-note">Built for owners and leaders who want clarity on the real drivers of margin.</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Audit depth</div>
+              <div class="metric-value">50+ KPIs</div>
+              <div class="metric-note">From labour and delivery efficiency to job-level margins and re-work.</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Delivery</div>
+              <div class="metric-value">7–10 days</div>
+              <div class="metric-note">From onboarding to a written report and live walkthrough.</div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-scroll="#contact">
+              Book a diagnostic
+              <span class="btn-icon-arrow">↗</span>
+            </button>
+            <button class="btn btn-ghost" data-scroll="#services">
+              View what’s included
+            </button>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <div class="hero-card-title">H-Legacy profitability & performance audit</div>
+              <div class="hero-card-pill">
+                <span class="hero-card-pill-dot"></span>
+                Owner-first numbers
+              </div>
+            </div>
+            <div class="hero-logo-shell">
+              <!-- transparent logo again -->
+              <img src="assets/logo.png" alt="H-Legacy shield logo" class="hero-logo-img">
+              <div class="hero-logo-title">Business performance diagnostic</div>
+              <p class="hero-logo-tagline">
+                You bring the revenue, cost and delivery data.
+                We bring the audit engine that clarifies where profit is earned – and where it is slipping away.
+              </p>
+            </div>
+            <div class="hero-stat-strip">
+              <span>
+                <span class="hero-stat-dot"></span>
+                <strong>Highlight profit leakage</strong> before it becomes a structural issue.
+              </span>
+              <span>Independent perspective · Designed in South Australia · Applied anywhere.</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="services">
+        <div class="section-heading">
+          <div class="section-title-block">
+            <div class="section-eyebrow">Overview</div>
+            <h2 class="section-title">What the audit actually covers</h2>
+          </div>
+          <p class="section-sub">
+            This is not generic “business coaching”. H-Legacy provides a disciplined view of how your business is
+            performing financially and operationally, using data you already have.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-header">
+              <h3 class="card-title">Profitability & margin analysis</h3>
+              <span class="card-tag">Where profit is really made</span>
+            </div>
+            <div class="card-body">
+              A structured review of your revenue, direct costs and delivery effort so you can see:
+              <ul class="card-list">
+                <li>Which activities, products or services drive the highest margin.</li>
+                <li>Where revenue looks strong but profit contribution is weak.</li>
+                <li>How discounting, re-work and scope creep impact profitability.</li>
+              </ul>
+              <div class="strip">
+                <span><strong>Output:</strong> concise profitability summary with key ratios.</span>
+                <span>Ideal for: owners needing a clear margin baseline.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3 class="card-title">Labour & delivery efficiency</h3>
+              <span class="card-tag">Time vs return</span>
+            </div>
+            <div class="card-body">
+              We align workload, labour cost and actual delivery so you can understand:
+              <ul class="card-list">
+                <li>Where teams or functions consistently run over expected effort.</li>
+                <li>How overtime, allowances or last-minute work affect cost-to-serve.</li>
+                <li>Which types of work absorb disproportionate time for limited return.</li>
+              </ul>
+              <div class="strip">
+                <span><strong>Output:</strong> labour and delivery efficiency dashboard.</span>
+                <span>Ideal for: teams working hard with unclear payoff.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h3 class="card-title">Revenue mix & pricing review</h3>
+              <span class="card-tag">Balance & exposure</span>
+            </div>
+            <div class="card-body">
+              We examine your revenue mix and pricing structure so you can:
+              <ul class="card-list">
+                <li>See which lines of work are carrying overall performance.</li>
+                <li>Identify under-priced or structurally low-margin activities.</li>
+                <li>Understand where adjustment or repositioning may protect profit.</li>
+              </ul>
+              <div class="strip">
+                <span><strong>Output:</strong> revenue mix snapshot and pricing observations.</span>
+                <span>Ideal for: owners considering change or growth.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="process">
+        <div class="section-heading">
+          <div class="section-title-block">
+            <div class="section-eyebrow">Process</div>
+            <h2 class="section-title">How the H-Legacy audit runs</h2>
+          </div>
+          <p class="section-sub">
+            Clear, practical and built around how you already operate.
+            No complex implementation program – just a focused review and a set of recommendations.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div class="pill-mini">
+              <span class="pill-dot"></span>
+              Three-step engagement
+            </div>
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                  <div class="step-title">Brief & data collection</div>
+                  <div class="step-text">
+                    We start with a discussion on how you currently price, plan and deliver work.
+                    From there we gather the key numbers: revenue data, cost inputs, labour or delivery information,
+                    and any notes that explain how things run today.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                  <div class="step-title">Profitability & performance diagnostics</div>
+                  <div class="step-text">
+                    Behind the scenes, we run your information through the H-Legacy audit engine –
+                    examining profitability, efficiency and exposure across different parts of the business.
+                    You do not need to build or maintain a model yourself.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                  <div class="step-title">Report, discussion & priorities</div>
+                  <div class="step-text">
+                    You receive a clear view of what is working, what is under pressure and where profit is at risk.
+                    We then walk through a practical set of priorities – changes you can make immediately,
+                    and areas to monitor over time.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="badge-row">
+              <span class="badge">Remote friendly – Australia wide</span>
+              <span class="badge">Independent, confidential assessment</span>
+              <span class="badge">Plain-English recommendations</span>
+            </div>
+            <p class="note">
+              H-Legacy provides <strong>operational and profitability diagnostics</strong>.
+              We are not your accountant or licensed financial adviser – our role is to help you interpret
+              and use the information already inside your business so you can have better conversations
+              with your professional advisers.
+            </p>
+          </div>
+
+          <div class="contact-card" id="contact">
+            <h3 class="section-title" style="font-size:1.05rem; margin-bottom:0.4rem;">Request a confidential profitability review</h3>
+            <p class="contact-intro">
+              Share a few details about your organisation and Riley will reach out personally to schedule a call.
+              There is no obligation – the aim is to understand whether a diagnostic is the right step for where you are now.
+            </p>
+            <div class="contact-tiles">
+              <div class="contact-tile">
+                <span class="contact-tile-dot"></span>
+                <span><strong>Riley Hounsell</strong> · H-Legacy Consulting</span>
+              </div>
+              <div class="contact-tile">
+                <span>📞</span>
+                <span>0452 016 332</span>
+              </div>
+            </div>
+
+            <!-- FormSubmit sends quietly to your inbox without exposing the email on the page -->
+            <form class="contact-form" action="https://formsubmit.co/rileyhounsell713@gmail.com" method="POST">
+              <!-- FormSubmit configuration -->
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_subject" value="New enquiry from H-Legacy website">
+              <input type="hidden" name="_next" value="https://hlegacy.com.au/#contact">
+
+              <div class="form-field">
+                <label class="form-label" for="name">Your name *</label>
+                <input class="form-input" type="text" id="name" name="Name" required placeholder="First & last name">
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="business">Business or organisation *</label>
+                <input class="form-input" type="text" id="business" name="Business" required placeholder="Registered or trading name">
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="email">Email *</label>
+                <input class="form-input" type="email" id="email" name="Email" required placeholder="you@example.com">
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="phone">Phone *</label>
+                <input class="form-input" type="tel" id="phone" name="Phone" required placeholder="Best contact number">
+              </div>
+
+              <div class="form-field form-full">
+                <label class="form-label" for="size">Approximate size</label>
+                <select class="form-select" id="size" name="Approximate size">
+                  <option value="" selected disabled>Select an option</option>
+                  <option value="Owner-operator or very small team">Owner-operator or very small team</option>
+                  <option value="Small team (up to 10 people)">Small team (up to 10 people)</option>
+                  <option value="Medium team (11–25 people)">Medium team (11–25 people)</option>
+                  <option value="Larger organisation (26+ people)">Larger organisation (26+ people)</option>
+                </select>
+              </div>
+
+              <div class="form-field form-full">
+                <label class="form-label" for="message">What would you like to improve?</label>
+                <textarea class="form-textarea" id="message" name="Key areas of focus" placeholder="For example: clarity on margins, understanding which parts of the business are underperforming, support to assess potential changes."></textarea>
+              </div>
+
+              <div class="form-footer">
+                <div class="form-helper">
+                  By submitting, your enquiry goes directly to the H-Legacy inbox.
+                  You’ll receive a reply within 1–2 business days.
+                  No mailing lists, no automated sequences.
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Send enquiry
+                  <span class="btn-icon-arrow">↗</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        © <span id="year"></span> H-Legacy Consulting. Business performance & profitability diagnostics.
+      </div>
+      <div class="footer-right">
+        <span class="footer-pill">Independent · Confidential · Practical</span>
+        <span>ABN available on request.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll("[data-scroll]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        var target = el.getAttribute("data-scroll");
+        var node = document.querySelector(target);
+        if (!node) return;
+        var headerOffset = 70;
+        var elementPosition = node.getBoundingClientRect().top + window.pageYOffset;
+        var offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+
+        var navLinks = document.getElementById("navLinks");
+        if (navLinks && navLinks.classList.contains("show")) {
+          navLinks.classList.remove("show");
+        }
+      });
+    });
+
+    // Mobile nav toggle
+    var navToggle = document.getElementById("navToggle");
+    var navLinks = document.getElementById("navLinks");
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+      });
+    }
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
